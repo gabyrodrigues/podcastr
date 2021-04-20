@@ -1,0 +1,88 @@
+.playerContainer {
+  align-items: center;
+  background-color: var(--purple-500);
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-between;
+  padding: 3rem 4rem;
+  width: 26.5rem;
+
+  header {
+    align-items: center;
+    display: flex;
+    gap: 1rem;
+  }
+
+  strong {
+    font-family: Lexend, sans-serif;
+    font-weight: 600;
+  }
+
+  footer {
+    align-self: stretch;
+
+    &.empty {
+      opacity: 0.5;
+    }
+  }
+}
+
+.emptyPlayer {
+  align-items: center;
+  background: linear-gradient(143.8deg, rgba(145, 100, 250, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+  border: 1.5px dashed var(--purple-300);
+  border-radius: 1.5rem;
+  display: flex;
+  height: 20rem;
+  justify-content: center;
+  padding: 4rem;
+  text-align: center;
+  width: 100%;
+}
+
+.progress {
+  align-items: center;
+  display: flex;
+  font-size: 0.875rem;
+  gap: 1rem;
+
+  span {
+    display: inline-block;
+    text-align: center;
+    width: 4rem;
+  }
+
+  .slider {
+    flex: 1;
+
+    .emptySlider {
+      background-color: var(--purple-300);
+      border-radius: 2px;
+      height: 4px;
+      width: 100%;
+    }
+  }
+}
+
+.buttons {
+  align-items: center;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-top: 2.5rem;
+
+  button {
+    background-color: transparent;
+    border: 0;
+    font-size: 0;
+
+    &.playButton {
+      background-color: var(--purple-400);
+      border-radius: 1rem;
+      height: 4rem;
+      width: 4rem;
+    }
+  }
+}
