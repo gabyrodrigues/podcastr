@@ -62,9 +62,25 @@ export default function Episode ({ episode }: EpisodeProps) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
+  const { data } = await api.get('episodes', {
+    params: {
+      _limit: 2,
+      _sort: 'published_at',
+      _order: 'desc'
+    }
+  });
+
+  const paths = data.map(episode => {
+    return {
+      params: {
+        slug: episode.id
+      }
+    }
+  })
+
   return {
-    paths: [],
-    fallback: 'blocking'
+    paths,
+    fallback: 'blocking' //a pessoa só é redirecionada pra tela quando os dados já tiverem sido carregados (melhor para SEO), diferentes do 'true' que carrega no momento que ele entra na pagina, ou do false, que dá erro 404
   }
 }
 
