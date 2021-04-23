@@ -11,14 +11,20 @@ import { useState } from 'react';
 function MyApp({ Component, pageProps }) {
   const [episodeList, setEpisodeList] = useState([]);
   const [currentEpisodeIndex, setCurrentEpisodeIndex] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   function play (episode) {
     setEpisodeList([episode]); //uma array com um unico episodio
     setCurrentEpisodeIndex(0); //força pra 0 de novo, pois como só tem um unico episodio, então esse index/episodio é o que precisa estar tocando
+    setIsPlaying(true);
+  }
+
+  function togglePlay () {
+    setIsPlaying(!isPlaying);
   }
 
   return (
-    <PlayerContext.Provider value={{ episodeList, currentEpisodeIndex, play }}>
+    <PlayerContext.Provider value={{ episodeList, currentEpisodeIndex, play, isPlaying, togglePlay }}>
       <div className={styles.wrapper}>
         <main>
           <Header />
